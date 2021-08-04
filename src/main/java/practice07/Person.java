@@ -13,6 +13,14 @@ public class Person {
         this.id = id;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return id == person.id && age == person.age && Objects.equals(name, person.name);
+    }
+
     public String getName() {
         return name;
     }
@@ -23,20 +31,6 @@ public class Person {
 
     public int getId() { return id; }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
-        return id == person.id &&
-                age == person.age &&
-                Objects.equals(name, person.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, age);
-    }
     public String introduce() {
         return String.format("My name is %s. I am %d years old.", name, age);
     }

@@ -13,7 +13,7 @@ public class Student extends Person {
     }
 
     public String introduce() {
-        if(klass.leader == this) {
+        if(klass.student == this) {
             return String.format(super.introduce() + " I am a Student. I am Leader of %s.", klass.getDisplayName());
         }
         return String.format(super.introduce() +" I am a Student. I am at %s.", klass.getDisplayName());

@@ -2,7 +2,7 @@ package practice07;
 
 public class Klass {
     private int number;
-    public Student leader;
+    public Student student;
 
     public Klass(int number) {
         this.number = number;
@@ -17,10 +17,10 @@ public class Klass {
     }
 
     public Klass assignLeader(Student student) {
-        this.leader = student;
+        this.student = student;
         return this;
     }
 
-    public Student getLeader() { return leader; }
+    public Student getLeader() { return student; }
 
 }
