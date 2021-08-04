@@ -12,10 +12,6 @@ public class Student extends Person{
         return klass;
     }
 
-    public int getKlassNumber() {
-        return klass.getNumber();
-    }
-
     public String introduce() {
         if(klass.getLeader() != null) {
             return String.format(super.introduce() + " I am a Student. I am Leader of %s.", klass.getDisplayName());
