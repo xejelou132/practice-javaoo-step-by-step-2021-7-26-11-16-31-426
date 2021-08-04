@@ -1,14 +1,18 @@
 package practice08;
-
-
-import java.util.Collections;
+;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Klass {
     private int number;
-    private School school;
-    public Student student;
+    private Student leader;
+    private List<Klass> schoolClass = new ArrayList<>();
 
     public Klass(int number) {
+        this.number = number;
+    }
+
+    public Klass(int number, String displayName) {
         this.number = number;
     }
 
@@ -16,27 +20,23 @@ public class Klass {
         return number;
     }
 
-    public String getDisplayName(){
+    public String getDisplayName() {
         return "Class " + number;
     }
 
-    public Klass assignLeader(Student student) {
-        if(isStudentNotFromSchool()){
-            System.out.print("It is not one of us.\n");
+    public void assignLeader(Student student) {
+        if (schoolClass.contains(student.getKlass())) {
+            this.leader = student;
+            return;
         }
-        else {
-            this.student = student;
-        }
-        return this;
+        System.out.print("It is not one of us.\n");
     }
 
-    private boolean isStudentNotFromSchool() {
-        return school == null;
+    public Student getLeader() {
+        return leader;
     }
-
-    public Student getLeader() { return student; }
 
     public void appendMember(Student student) {
-        school = new School(Collections.singletonList(student));
+        schoolClass.add(student.getKlass());
     }
 }
